@@ -1,0 +1,80 @@
+{% extends 'certificados/base.html' %}
+
+{% block title %}Certificado de {{ certificado.pessoa.nome }} - Sistema de Integração{% endblock %}
+
+{% block header_title %}Certificado Gerado{% endblock %}
+{% block header_subtitle %}Integração concluída com sucesso{% endblock %}
+
+{% block content %}
+<div class="text-center mb-4">
+    <div class="alert alert-success">
+        <i class="fas fa-check-circle fa-2x mb-3"></i>
+        <h4>Certificado gerado com sucesso!</h4>
+        <p class="mb-0">O certificado foi emitido e está pronto para uso.</p>
+    </div>
+</div>
+
+<div class="certificate-preview bg-light p-4 rounded-3 mb-4">
+    <div class="text-center">
+        <h2 class="text-primary mb-4">
+            <i class="fas fa-certificate me-2"></i>
+            CERTIFICADO DE INTEGRAÇÃO
+        </h2>
+        
+        <div class="certificate-content">
+            <p class="fs-5 mb-4">
+                Certificamos que <strong>{{ certificado.pessoa.nome }}</strong>, 
+                colaborador da empresa <strong>{{ certificado.pessoa.empresa.nome }}</strong>, 
+                concluiu a integração da empresa <strong>Norte Tech – Serviços em Energia Ltda</strong>.
+            </p>            
+            <p class="text-muted">
+                <i class="fas fa-map-marker-alt me-2"></i>
+                Manaus, {{ certificado.data_emissao|date:"d \d\e F \d\e Y" }}
+            </p>
+        </div>
+    </div>
+</div>
+
+<div class="row g-3">
+    <div class="col-md-6">
+        <a href="{% url 'certificados:gerar_certificado_pdf' certificado.id %}" 
+           class="btn btn-primary btn-lg w-100">
+            <i class="fas fa-download me-2"></i>Baixar PDF
+        </a>
+    </div>
+    <div class="col-md-6">
+        <a href="{% url 'certificados:cadastro_pessoa' %}" 
+           class="btn btn-secondary btn-lg w-100">
+            <i class="fas fa-plus me-2"></i>Novo Certificado
+        </a>
+    </div>
+</div>
+
+<div class="mt-4">
+    <div class="card">
+        <div class="card-body">
+            <h6 class="card-title">
+                <i class="fas fa-info-circle me-2"></i>Informações do Certificado
+            </h6>
+            <div class="row">
+                <div class="col-sm-6">
+                    <strong>Nome:</strong><br>
+                    {{ certificado.pessoa.nome }}
+                </div>
+                <div class="col-sm-6">
+                    <strong>Empresa:</strong><br>
+                    {{ certificado.pessoa.empresa.nome }}
+                </div>
+            </div>
+            <hr>
+            <div class="row">
+                <div class="col-sm-6">
+                    <strong>Data de Emissão:</strong><br>
+                    {{ certificado.data_emissao|date:"d/m/Y H:i" }}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+

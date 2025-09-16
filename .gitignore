@@ -1,0 +1,104 @@
+# Arquivos de Bytecode e Cache do Python
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Extensões C
+*.so
+
+# Distribuição / Empacotamento
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# Instalador PyInstaller
+*.manifest
+*.spec
+
+# Logs de Instaladores
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Relatórios de Testes e Cobertura
+htmlcov/
+.tox/
+.nox/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+.hypothesis/
+.pytest_cache/
+
+# Ambientes Virtuais
+.env
+.venv
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# Arquivos de Documentação Sphinx
+docs/_build/
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# Configurações de IDEs e Editores
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# Arquivos de Sistema Operacional
+.DS_Store
+Thumbs.db
+
+# --- Específico para Django ---
+
+# Banco de dados local SQLite
+*.sqlite3
+db.sqlite3
+db.sqlite3-journal
+
+# Arquivos de log do Django
+*.log
+
+# Arquivos de tradução compilados
+*.mo
+
+# Arquivos de mídia enviados pelo usuário
+# É uma boa prática não versionar o diretório de mídia.
+# Assegure-se de que seu ambiente de produção tenha uma estratégia para lidar com esses arquivos.
+/media/
+
+# Arquivos estáticos coletados pelo `collectstatic`
+# O `collectstatic` reúne todos os arquivos estáticos em um único diretório para produção.
+# O código-fonte dos seus arquivos estáticos (em `app/static/`) deve ser versionado.
+/static_root/
+/staticfiles/
+
+# Arquivos de configuração local que contêm informações sensíveis (chaves secretas, senhas de banco de dados, etc.)
+# Crie um `local_settings.py.example` para que outros desenvolvedores saibam quais configurações são necessárias.
+local_settings.py
+settings_local.py
+.env

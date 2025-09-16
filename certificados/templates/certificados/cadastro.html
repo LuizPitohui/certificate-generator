@@ -1,0 +1,49 @@
+<!-- certificados/templates/certificados/cadastro.html -->
+{% extends 'certificados/base.html' %}
+
+{% block title %}Cadastro de Integração{% endblock %}
+{% block header_title %}Cadastro de Integração{% endblock %}
+{% block header_subtitle %}Preencha os dados para gerar o certificado{% endblock %}
+
+{% block content %}
+<form method="post">
+    {% csrf_token %}
+    
+    <div class="mb-3">
+        <label for="{{ form.nome_representante.id_for_label }}" class="form-label">{{ form.nome_representante.label }}</label>
+        {{ form.nome_representante }}
+    </div>
+    
+    <div class="mb-3">
+        <label for="{{ form.documento.id_for_label }}" class="form-label">{{ form.documento.label }}</label>
+        {{ form.documento }}
+    </div>
+
+    <hr>
+    <p class="text-muted">Selecione uma empresa ou cadastre uma nova.</p>
+
+    <div class="mb-3">
+        <label for="{{ form.empresa_existente.id_for_label }}" class="form-label">{{ form.empresa_existente.label }}</label>
+        {{ form.empresa_existente }}
+    </div>
+
+    <div class="text-center my-2"><strong>OU</strong></div>
+
+    <div class="mb-3">
+        <label for="{{ form.nova_empresa.id_for_label }}" class="form-label">{{ form.nova_empresa.label }}</label>
+        {{ form.nova_empresa }}
+    </div>
+
+    {% if form.non_field_errors %}
+        <div class="alert alert-danger mt-3">
+            {% for error in form.non_field_errors %}
+                {{ error }}
+            {% endfor %}
+        </div>
+    {% endif %}
+
+    <div class="d-grid mt-4">
+        <button type="submit" class="btn btn-primary btn-lg">Gerar Certificado</button>
+    </div>
+</form>
+{% endblock %}
